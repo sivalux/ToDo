@@ -1,0 +1,92 @@
+<body  class = "body">
+     <h1 *ngIf="!flag">ADD ToDo</h1> 
+     <h1 *ngIf="flag">EDIT ToDo</h1> 
+
+
+
+
+<form [formGroup]='form' (ngSubmit)="onsubmit()">
+        <div class="formcontainer">
+    <div class="form-group ">
+        <mat-form-field>
+            <input formControlName="title" matInput placeholder="Enter the Title">
+
+            <mat-error *ngIf="form.get('title').hasError('required')">You must enter </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group ">
+        <mat-form-field>
+            <input formControlName="description" matInput placeholder="Enter the Description">
+
+            <mat-error *ngIf="form.get('description').hasError('required')">You must enter </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group ">
+        <mat-form-field>
+            <mat-label>Select an option</mat-label>
+            
+            <mat-select formControlName="priority" >
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+                <mat-option value="4">4</mat-option>
+                <mat-option value="5">5</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('priority').hasError('required')">You must select</mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- <div class="form-group ">
+        <mat-form-field>
+            <input formControlName="startDate" matInput placeholder="Enter the startDate">
+
+            <mat-error *ngIf="form.get('startDate').hasError('required')">You must startDate </mat-error>
+        </mat-form-field>
+    </div> -->
+    <div class="form-group ">
+    <mat-form-field>
+        <input formControlName="startDate" matInput [matDatepicker]="picker1" placeholder="Choose a date" >
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group ">
+        <mat-form-field>
+            <input formControlName="dueDate" matInput [matDatepicker]="picker2" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+    
+    
+    <!-- <div class="form-group ">
+        <mat-form-field>
+            <input formControlName="dueDate" matInput placeholder="Enter the DueDate">
+
+            <mat-error *ngIf="form.get('dueDate').hasError('required')">You must dueDate </mat-error>
+        </mat-form-field>
+    </div> -->
+
+  
+
+
+    
+     <!-- <span *ngIf="flag" (click)="onDelete()" class="btn btn-danger" >Delete</span> -->
+    
+    
+
+    <div class="button-row">
+             
+            <button  mat-raised-button type ="submit" *ngIf="!flag" >Submit</button>
+            <button  mat-raised-button type="reset" *ngIf="!flag" >Cancel</button>
+            <span *ngIf="flag" (click)="onUpdate()" class="btn btn-success">Update</span>
+    </div>
+ 
+
+
+    </div>
+</form>
+
+</body>

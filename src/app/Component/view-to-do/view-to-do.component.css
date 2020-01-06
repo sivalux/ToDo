@@ -1,7 +1,61 @@
+.body
+{
+    background: url('/assets/asset/img/vcb.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    overflow:hidden;
+    overflow-y: auto;
+}
+.todo
+{
+    margin-top : 50px;
+    margin-left : 100px;
+    margin-right : 100px;
+    margin-bottom : 100px;
+}
+
 table {
     width: 100%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-   
+    
+    /* text-align: left; */
+    background-color: #D5DDEF;
+    
   }
+  .mat-header-cell
+  {
+    color: #103887;
+    background-color: #99B0DE;
+    font-size: 20px;
+    font-weight: bold;
+    
+  }
+  .mat-cell
+  {
+    border-color: #0E1015;
+    color: #0E1015;
+  }
+  h1 {
+    color: #99B0DE;
+    padding-left: 50px;
+    font-family: 'serif';
+    font-size: 45px;
+    position: relative;
+    padding-top: 10px;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .addbtn
+  {
+    margin-left : 100px;
+    padding: 5px 20px;
+    color: #0C130D;
+    background-color: #095E1A;
+    
+  }
+
+  .mat-table {
+    margin-bottom: 30px !important;
+  }
+  
+  

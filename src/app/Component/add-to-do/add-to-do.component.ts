@@ -4,6 +4,7 @@ import { ToDoService } from 'src/app/Service/to-do.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-add-to-do',
   templateUrl: './add-to-do.component.html',
@@ -15,6 +16,7 @@ export class AddToDoComponent implements OnInit {
   editToDoArray: FormArray;
   flag = this.route.snapshot.queryParams['isEdit'];
   constructor(private _fb: FormBuilder, private todoservice: ToDoService, private router: Router, private route: ActivatedRoute ) { }
+  // today: number = Date.now();
 
   ngOnInit() {
     if (this.route.snapshot.queryParams['isEdit']) {
@@ -25,7 +27,8 @@ export class AddToDoComponent implements OnInit {
          description: [data[0].description, [Validators.required]],
          priority: [data[0].priority, [Validators.required]],
          startDate: [data[0]. startDate, [Validators.required]],
-         dueDate: [data[0]. dueDate, [Validators.required]]
+         dueDate: [data[0]. dueDate, [Validators.required]],
+         check: [data[0]. check, [Validators.required]]
         });
       });
     }
@@ -36,7 +39,8 @@ export class AddToDoComponent implements OnInit {
          description: ['', [Validators.required]],
          priority: ['', [Validators.required]],
          startDate: ['', [Validators.required]],
-         dueDate: ['', [Validators.required]]
+         dueDate: ['', [Validators.required]],
+        check: ['Undone']
     });
   }
   }
@@ -48,7 +52,7 @@ export class AddToDoComponent implements OnInit {
       res => {
         // this.toastr.success(this.form.get('stage_size').value+','+this.form.get('place_type').value+','+this.form.get('price').value+'!', 'Success!',
         // {timeOut: 2000});;
-          // this.router.navigate(['/viewsound']);
+          this.router.navigate(['']);
       });
     }
   }
@@ -60,12 +64,14 @@ export class AddToDoComponent implements OnInit {
         res => {
           // this.toastr.success('Sound Updated', 'Successfully Updated!',
           // {timeOut: 4000});;
-          
+          this.router.navigate(['']);
         }
       );
-      this.router.navigate(['']);
+     
     }
   }
 
   
+  // minDate = new Date(2000, 0, 1);
+  // maxDate = new Date(dueDate);
 }

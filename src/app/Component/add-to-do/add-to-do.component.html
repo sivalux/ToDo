@@ -2,10 +2,7 @@
      <h1 *ngIf="!flag">ADD ToDo</h1> 
      <h1 *ngIf="flag">EDIT ToDo</h1> 
 
-
-
-
-<form [formGroup]='form' (ngSubmit)="onsubmit()">
+<form [formGroup]='form' >
         <div class="formcontainer">
     <div class="form-group ">
         <mat-form-field>
@@ -23,9 +20,10 @@
         </mat-form-field>
     </div>
 
+
     <div class="form-group ">
         <mat-form-field>
-            <mat-label>Select an option</mat-label>
+            <mat-label>Select the Priority</mat-label>
             
             <mat-select formControlName="priority" >
                 <mat-option value="1">1</mat-option>
@@ -37,7 +35,6 @@
             <mat-error *ngIf="form.get('priority').hasError('required')">You must select</mat-error>
         </mat-form-field>
     </div>
-
     <!-- <div class="form-group ">
         <mat-form-field>
             <input formControlName="startDate" matInput placeholder="Enter the startDate">
@@ -47,18 +44,33 @@
     </div> -->
     <div class="form-group ">
     <mat-form-field>
-        <input formControlName="startDate" matInput [matDatepicker]="picker1" placeholder="Choose a date" >
+        <input formControlName="startDate" matInput [matDatepicker]="picker1" placeholder="Choose Start Date" >
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="form-group ">
         <mat-form-field>
-            <input formControlName="dueDate" matInput [matDatepicker]="picker2" placeholder="Choose a date">
+            <input formControlName="dueDate" matInput [matDatepicker]="picker2" placeholder="Choose Due Date">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
         </div>
+
+
+        
+    <div class="form-group " *ngIf="flag">
+        <mat-form-field>
+            <mat-label>Select </mat-label>
+            
+            <mat-select formControlName="check" >
+                <mat-option value="1">Done</mat-option>
+                <mat-option value="2">Undone</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('check').hasError('required')">You must select</mat-error>
+        </mat-form-field>
+    </div>
+       
     
     
     <!-- <div class="form-group ">
@@ -79,9 +91,11 @@
 
     <div class="button-row">
              
-            <button  mat-raised-button type ="submit" *ngIf="!flag" >Submit</button>
-            <button  mat-raised-button type="reset" *ngIf="!flag" >Cancel</button>
-            <span *ngIf="flag" (click)="onUpdate()" class="btn btn-success">Update</span>
+            <button  mat-raised-button (click)="onSubmit()"  *ngIf="!flag" >Submit</button>
+            
+            <button  mat-raised-button (click)="onUpdate()"  *ngIf="flag" >Update</button>
+            <button  mat-raised-button type="reset"  >Cancel</button>
+            <!-- <span *ngIf="flag" (click)="onUpdate()" class="btn3">Update</span> -->
     </div>
  
 

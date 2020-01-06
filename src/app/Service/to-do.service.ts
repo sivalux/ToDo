@@ -28,7 +28,8 @@ export class ToDoService {
       description: form.description,
       priority: form.priority,
       startDate: form.startDate,
-      dueDate: form.dueDate
+      dueDate: form.dueDate,
+      check: form.check
     };
     return this.http.post<any>('http://localhost:8000/api/todos', data);
   }
@@ -39,9 +40,12 @@ export class ToDoService {
       description: form.description,
       priority: form.priority,
       startDate: form.startDate,
-      dueDate: form.dueDate
+      dueDate: form.dueDate,
+      check: form.check
     };
 
     return this.http.post<any>('http://localhost:8000/api/todos/'+ data.id, data)
   }
+
+  
 }

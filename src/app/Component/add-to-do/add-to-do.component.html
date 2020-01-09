@@ -44,14 +44,14 @@
     </div> -->
     <div class="form-group ">
     <mat-form-field>
-        <input formControlName="startDate" matInput [matDatepicker]="picker1" placeholder="Choose Start Date" >
+        <input (click)="picker1.open()" formControlName="startDate" [min]="currentDate" [max]="picker2" matInput [matDatepicker]="picker1" placeholder="Choose Start Date" >
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="form-group ">
         <mat-form-field>
-            <input formControlName="dueDate" matInput [matDatepicker]="picker2" placeholder="Choose Due Date">
+            <input (click)="picker2.open()" formControlName="dueDate" [min]="currentDate" matInput [matDatepicker]="picker2" placeholder="Choose Due Date">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
@@ -64,8 +64,8 @@
             <mat-label>Select </mat-label>
             
             <mat-select formControlName="check" >
-                <mat-option value="1">Done</mat-option>
-                <mat-option value="2">Undone</mat-option>
+                <mat-option value="Done">Done</mat-option>
+                <mat-option value="Undone">Undone</mat-option>
             </mat-select>
             <mat-error *ngIf="form.get('check').hasError('required')">You must select</mat-error>
         </mat-form-field>
@@ -94,7 +94,7 @@
             <button  mat-raised-button (click)="onSubmit()"  *ngIf="!flag" >Submit</button>
             
             <button  mat-raised-button (click)="onUpdate()"  *ngIf="flag" >Update</button>
-            <button  mat-raised-button type="reset"  >Cancel</button>
+            <button  mat-raised-button (click)="onCancel()"   >Cancel</button>
             <!-- <span *ngIf="flag" (click)="onUpdate()" class="btn3">Update</span> -->
     </div>
  

@@ -1,0 +1,28 @@
+form
+{
+    padding-top : 185px;
+    padding-left : 500px;
+    padding-right : 100px;
+   
+}
+.mat-form-field {
+    width: 50%;
+  }
+.body
+{
+    background: url('/assets/asset/img/home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    overflow:hidden;
+    overflow-y: auto;
+}
+.button-row
+{
+  padding-left: 850px;
+  padding-top: 120px;
+}
+.button-row button,
+.button-row a {
+  margin-right: 20px;
+}

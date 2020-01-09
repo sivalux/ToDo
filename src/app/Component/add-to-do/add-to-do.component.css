@@ -77,7 +77,7 @@ input {
     display: inline;
     font-style: oblique;
     font-size: 20px;
-    
+    cursor: pointer;
     font-weight: bold;
   }
   

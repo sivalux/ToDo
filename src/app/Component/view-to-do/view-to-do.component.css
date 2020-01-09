@@ -1,6 +1,6 @@
 .body
 {
-    background: url('/assets/asset/img/vcb.jpg');
+    background: url('/assets/asset/img/ab.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100% 100%;
@@ -9,7 +9,7 @@
 }
 .todo
 {
-    margin-top : 50px;
+    margin-top : 10px;
     margin-left : 100px;
     margin-right : 100px;
     margin-bottom : 100px;
@@ -19,13 +19,13 @@ table {
     width: 100%;
     
     /* text-align: left; */
-    background-color: #D5DDEF;
+    background-color: #D2C7E3;
     
   }
   .mat-header-cell
   {
-    color: #103887;
-    background-color: #99B0DE;
+    color: #33303E;
+    background-color: #A1A0A9;
     font-size: 20px;
     font-weight: bold;
     
@@ -36,26 +36,45 @@ table {
     color: #0E1015;
   }
   h1 {
-    color: #99B0DE;
+    color: #AFAEB5;
     padding-left: 50px;
-    font-family: 'serif';
+  
     font-size: 45px;
     position: relative;
     padding-top: 10px;
     font-weight: bold;
     font-style: italic;
   }
-  .addbtn
-  {
-    margin-left : 100px;
-    padding: 5px 20px;
-    color: #0C130D;
-    background-color: #095E1A;
-    
-  }
 
   .mat-table {
     margin-bottom: 30px !important;
   }
+  .btnedit { 
+    font-size: 24px;
+    cursor: pointer;
+    color: #0000FF }
+
+    .btndel { 
+      font-size: 24px;
+      cursor: pointer;
+      color: #B30A0A }
   
+      .btndone { 
+        color: #074814 ;
+       
+      }
+
+        ::ng-deep .mat-checkbox .mat-checkbox-frame {
+          border-color: #074814;
+          /* height: 10px;
+          width: 10px; */
+        }
+        .createbtn
+        {
+          font-size: 20px;
+          margin-left : 100px;
+          padding: 5px 20px;
+          color: #0C130D;
+          background-color: #095E1A;
+        }
   

@@ -16,7 +16,7 @@ export class AddToDoComponent implements OnInit {
   editToDoArray: FormArray;
   flag = this.route.snapshot.queryParams['isEdit'];
   constructor(private _fb: FormBuilder, private todoservice: ToDoService, private router: Router, private route: ActivatedRoute ) { }
-  // today: number = Date.now();
+  currentDate = new Date();
 
   ngOnInit() {
     if (this.route.snapshot.queryParams['isEdit']) {
@@ -52,7 +52,7 @@ export class AddToDoComponent implements OnInit {
       res => {
         // this.toastr.success(this.form.get('stage_size').value+','+this.form.get('place_type').value+','+this.form.get('price').value+'!', 'Success!',
         // {timeOut: 2000});;
-          this.router.navigate(['']);
+          this.router.navigate(['/viewtodo']);
       });
     }
   }
@@ -64,14 +64,18 @@ export class AddToDoComponent implements OnInit {
         res => {
           // this.toastr.success('Sound Updated', 'Successfully Updated!',
           // {timeOut: 4000});;
-          this.router.navigate(['']);
+          this.router.navigate(['/viewtodo']);
         }
       );
      
     }
   }
 
+
+  onCancel() {
+
+    this.router.navigate(['/viewtodo']);
+  }
   
-  // minDate = new Date(2000, 0, 1);
-  // maxDate = new Date(dueDate);
+
 }

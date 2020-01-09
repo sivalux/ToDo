@@ -20,11 +20,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { DialogBoxComponent } from './Component/dialog-box/dialog-box.component';
+import { LoginComponent } from './Component/login/login.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { RegisterComponent } from './Component/register/register.component';
+import { AlwaysAuthGuard } from './Guard/always-auth.guard';
+import { HomeComponent } from './Component/home/home.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     AddToDoComponent,
-    ViewToDoComponent
+    ViewToDoComponent,
+    DialogBoxComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,11 +61,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     MatIconModule,
     MatCheckboxModule,
+    MatDialogModule,
+    JwtModule,
+
     
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() {
+             return     localStorage.getItem('access_token');},
+        whitelistedDomains: ['localhost:3000'],
+        blacklistedRoutes: ['http://localhost:3000/auth/login']
+      }
+    })
     //  MatMomentDateModule,
 
   ],
-  providers: [],
+  providers: [AlwaysAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
